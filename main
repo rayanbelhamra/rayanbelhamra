@@ -1,0 +1,16 @@
+# Code fait par Rayan Belhamra
+#14 Septembre 20222
+#TP1
+#La fonction du code est de déterminer le nombre de mots dans une phrase
+phrase = input("désire tu écrire une phrase:")
+#grâce a la fonction de input, ca prmet a l'utiisateur du code d'écrir dans la console
+print(phrase)
+#on define une fonction main
+def main():
+    #on crée une variable qui permet de split le sting en une liste
+    contage = phrase.split()
+    #on créee une variable afin de faire un len pour compter les espaces
+    wordCount = len(contage)
+    #on print la phrase afin de dire le nombre de mot dans une phrase.
+    print("Le nombre de mot dans cette phrase est:", wordCount)
+main()
