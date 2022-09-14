@@ -9,7 +9,7 @@ print(phrase)
 def main():
     #on crée une variable qui permet de split le sting en une liste
     contage = phrase.split()
-    #on créee une variable afin de faire un len pour compter les espaces
+    #on cré variable len pour conter le nombre de caractere dans un stirng
     nombredemot = len(contage)
     #on utilise print pour ecrire la phrase afin que le joueur sache le nombre de mot
     print("dans cette phrase, le nombre de mot est :", nombredemot)
