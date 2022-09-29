@@ -1,16 +1,38 @@
+
 # Code fait par Rayan Belhamra
+
 #14 Septembre 20222
+
 #TP1
-#La fonction du code est de déterminer le nombre de mots dans une phrase
+
+#La fonction du code est de déterminer le nombre de mots dans une phrase qui est écrite par l'éxecuteur du code
+
 phrase = input("désire tu écrire une phrase et on va compter le nombre de mot:")
-#grâce a la fonction de input, ca prmet a l'utiisateur du code d'écrir dans la console
+#grâce a la fonction de input, ca permet a l'utiisateur du code d'écrir dans la console
+
+
 print(phrase)
-#crée une foncttionne qui va s'appeler main
-def main():
-    #on crée une variable qui permet de split le sting en une liste
+# imprime la variable dans la console
+
+
+
+#On crée une foncttionne qui va s'appeler main
+def main(phrase):
+
+
     contage = phrase.split()
-    #on cré variable len pour conter le nombre de caractere dans un stirng
+    # on crée une variable qui permet de split le string en une liste
+
+
     nombredemot = len(contage)
-    #on utilise print pour ecrire la phrase afin que le joueur sache le nombre de mot
-    print("dans cette phrase, le nombre de mot est :", nombredemot)
-main()
+    # on crée une variable len pour conpter le nombre de caractere dans un string
+
+    return nombredemot
+# return permet de nous retourner la valeur du nbr de mots dans la phrase écrite dans la console par l'éxecuteur du code
+
+
+resultat = main(phrase)
+# on crée une nouvelle variable qui contient le résultat de la fonction def main(phrase)
+
+print (resultat)
+# on imprime la variable résultat dans la console
