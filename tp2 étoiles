@@ -1,0 +1,11 @@
+# Code fait par Rayan Belhamra
+
+#13 Octobre 2022
+
+#TP2, exercise 1,c
+
+# On demande a notre joueur le nombre d'étoiles qu'il veut en int donc il peut mettre que un nombre
+nbretoile = int(input("combien d'étoiles voulez vous:"))
+
+for i in range(nbretoile + 1, 0, -1):
+    print("*" * i)
