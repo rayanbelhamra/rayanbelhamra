@@ -1,0 +1,96 @@
+# Code fait par Rayan Belhamra
+# 2022-12-05
+# Tp3 combat de monstres
+
+import random
+
+	# affectation des variables
+monstre_level = random.randint(2, 11)
+dice_throw = random.randint(2, 12)
+jeu = True
+vie_joueur = 20
+nbr_combat = 0
+nbr_victoires = 0
+nbr_victoires_consecutives = 0
+nbr_defaites = 0
+
+
+#Fonction du menu de jeu
+def menu():
+    global choix_joueur
+    choix_joueur = int(input("Que désirez-vous faire ?\n 1- Combattre cet affreux adversaire\n 2- Contourner cet affreux adversaire et aller ouvrir une autre porte\n 3- afficher les règles du jeu dans la console \n 4- Quitter la partie"))
+
+#Fonction du combat avec un monstre
+def combat():
+    global nbr_combat
+    global vie_joueur
+    global nbr_victoires
+    global nbr_defaites
+    global nbr_victoires_consecutives
+    nbr_combat = nbr_combat + 1
+    print("Vous avez choisi de combattre cet adversaire")
+    print(" Adversaire :", nbr_combat, "\n Force de l’adversaire :",monstre_level, "\n Niveau de vie de l’usager :", vie_joueur, "\n Combat", nbr_combat, ":", nbr_victoires, "victoire et", nbr_defaites, "défaite")
+    print("Lancer du dé:", dice_throw)
+    #Victoire
+    if dice_throw >= monstre_level:
+        print("Vous avez gagné! Votre vie est augmenté de", monstre_level)
+        vie_joueur = vie_joueur + monstre_level
+        nbr_victoires = nbr_victoires +1
+        nbr_victoires_consecutives = nbr_victoires_consecutives + 1
+
+    #Défaite
+    elif dice_throw <= monstre_level:
+        print("Vous avez perdu... Votre vie est réduite de", monstre_level)
+        vie_joueur = vie_joueur - monstre_level
+        nbr_defaites = nbr_defaites + 1
+        nbr_victoires_consecutives = 0
+
+    print("Niveau de vie :", vie_joueur, "\n Nombre de victoires consécutives :", nbr_victoires_consecutives)
+
+#Fonction pour contourner l'adversaire
+def contourner():
+    if choix_joueur == 2:
+        print("Vous avez choisi de contourner cet adversaire \n Votre vie est réduite de 1")
+
+#Fonction pour afficher les règles
+def regle():
+    print("Pour réussir un combat, il faut que la valeur du dé lancé soit supérieure à la force de l’adversaire. \n Dans ce cas, le niveau de vie de l’usager est augmenté de la force de l’adversaire. \n Une défaite a lieu lorsque la valeur du dé lancé par l’usager est inférieure ou égale à la force de l’adversaire. \n Dans ce cas, le niveau de vie de l’usager est diminué de la force de l’adversaire. \n La partie se termine lorsque les points de vie de l’usager tombent sous 0. \n L’usager peut combattre ou éviter chaque adversaire, dans le cas de l’évitement, il y a une pénalité de 1 point de vie.")
+
+#Fonction pour quitter le jeu
+def quitter():
+    print("Merci et au revoir...")
+    global jeu
+    jeu = False
+
+#Fonction du Boss après 3 victoires
+def boss():
+    global niveau_monstre
+    monstre_level= 11
+    combat()
+
+#Fonction de si le joueur à perdue
+def fin_partie():
+    print("La partie est terminé. \n Vous avez vaincu", nbr_victoires, "monstres")
+
+#Boucle du jeu
+while jeu == True:
+    niveau_monstre = random.randint(2, 11)
+    print("Vous tombez face à face avec un adversaire de difficulté :", monstre_level)
+    menu()
+    if choix_joueur == 1:
+        combat()
+
+    elif choix_joueur == 2:
+        contourner()
+
+    elif choix_joueur == 3:
+        regle()
+
+    elif choix_joueur == 4:
+        quitter()
+
+    elif nbr_victoires == 3:
+        boss()
+
+    elif vie_joueur <= 0:
+        fin_partie()
