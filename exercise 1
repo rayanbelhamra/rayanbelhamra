@@ -1,0 +1,14 @@
+#code fait par Rayn Belhamra
+# exercise 1
+#fais 12-16-2022
+
+class StringFoo:
+
+    def __innit__(self):
+        self.attribut_1 = ''
+
+    def set_string(self, parametre):
+        self.attribut_1 = parametre
+
+    def print_string(self):
+        print(self.attribut_1.upper())
