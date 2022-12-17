@@ -1,0 +1,7 @@
+class hero:
+def __init__(self, nom:str, niveau, force: int, niveau_vie: int, defense: int):
+    self.nom = nom
+    self.niveau = niveau
+    self.force = force
+    self.niveau_vie = niveau_vie
+    self.defense = defense
