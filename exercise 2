@@ -1,0 +1,8 @@
+class rectangle:
+    def __innit__(self , width: int, height: int):
+        :parametre width:
+        :parametre width:
+        self.width = width
+        self.height = height
+    def __str__(self):
+        print("la longeur du rectangle est de :" 'height' \n " la largeur est de :" 'width')
