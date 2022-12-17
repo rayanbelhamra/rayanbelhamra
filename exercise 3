@@ -1,0 +1,9 @@
+Class cercle
+def __init__(self, rayon : int):
+    self.rayon = rayon
+def __str__(self):
+    return f"cercle : rayon=(self.radius)"
+def aire(self):
+    return pi * self.rayon ** 2
+def circonférence(self):
+    return 2 * pi * self.rayon
