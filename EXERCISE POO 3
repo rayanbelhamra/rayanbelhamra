@@ -1,0 +1,65 @@
+#exercise 3 poo
+# fais le 2023-01-30
+# crée par rayan belhamra
+
+import random
+def dice12():
+    dice_12 = random.randint(1,12)
+    return(dice_12)
+def dice20():
+    dice_20 = random.randint(1,20)
+    return(dice_20)
+def throw_dice():
+    de_1= random.randint(1,6)
+    de_2= random.randint(1,6)
+    de_3= random.randint(1,6)
+    de_4= random.randint(1,6)
+    if de_1 < de_2 and de_1 < de_3 and de_1 < de_4:
+        return (de_2 + de_3 + de_4)
+    elif de_2 < de_1 and de_2 < de_3 and de_2 < de_4:
+        return (de_1 + de_3 + de_4)
+    elif de_3 < de_1 and de_3 < de_2 and de_3 < de_4:
+        return (de_1 + de_2 + de_4)
+    elif de_4 < de_1 and de_4 < de_2 and de_4 < de_3:
+        return (de_1 + de_2 + de_3 )
+
+class NPC:
+    def __init__(self):
+        self.force = throw_dice()
+        self.agilité = throw_dice()
+        self.constitution = throw_dice()
+        self.intelligence = throw_dice()
+        self.sagesse = throw_dice()
+        self.charisme = throw_dice()
+        self.classe_d_armure =  dice12()
+        self.nom = str
+        self.race = str
+        self.espece = str
+        self.pts_de_vie = dice20()
+        self.profession = str
+    def show_caracteristics(self):
+        print(self.force, self.agilité, self.constitution, self.intelligence, self.sagesse, self.charisme, self.classe_d_armure, self.nom, self.race, self.espece, self.pts_de_vie, self.pts_de_vie, self.profession)
+
+class KOBALD(NPC):
+    def __init__(self):
+        super().__init__()
+    def attaquer(self, NPC):
+        return
+    def subirdommage(self, dommage):
+        self.pts_de_vie -= dommage
+
+class HERO(NPC):
+    def __init__(self):
+        super().__init__()
+    def attaquer(self, NPC= KOBALD):
+        lancer = random.randint (1,20)
+        if lancer < 20 and lancer > 1:
+            if NPC.classe_d_armure > lancer:
+                return
+            elif lancer > NPC.classe_d_armure:
+                NPC.subirdommage(random.randint(1,6))
+        if lancer == 20:
+            NPC.subirdommage(random.randint(1,8))
+
+    def subirdommage(self, dommage):
+        return
