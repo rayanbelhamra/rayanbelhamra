@@ -4,9 +4,13 @@ import random
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 
+
+# définition de la variable COLORS
 COLORS = [arcade.color.BLUE, arcade.color.FANDANGO_PINK,
          arcade.color.FRENCH_ROSE, arcade.color.GOLDEN_POPPY]
 
+
+# On crée la balle
 class Balle():
    def __init__(self, parameter1 , parameter2, parameter3, parameter4):
        self.rayon = parameter1
@@ -16,9 +20,10 @@ class Balle():
        self.change_x = random.randint(1,50)
        self.change_y = random.randint(1,50)
 
-
+   # On dessine un cercle
    def draw(self):
        arcade.draw_circle_filled(self.center_x, self.center_y, self.rayon, self.color)
+    # On fait que les balles rebondissent lorsqu'elles touchent les limites de l'écran
    def update(self):
        self.center_x += self.change_x
        self.center_y += self.change_y
@@ -31,7 +36,7 @@ class Balle():
        if self.center_x < 0:
            self.change_x *= -1
 
-
+# On crée le rectangle
 class Rectangle():
     def __init__(self, parameter1, parameter2, parameter3, parameter4, parameter5):
         self.width= parameter1
@@ -41,10 +46,10 @@ class Rectangle():
         self.height = parameter5
         self.change_x = random.randint(1,50)
         self.change_y = random.randint(1,50)
-
+    #on dessine le rectangle
     def draw(self):
         arcade.draw_rectangle_filled(self.center_x, self.center_y, self.width, self.height, self.color, 0)
-
+    # On fait que les rectanles rebondissent lorsqu'elles touchent les limites de l'écran
     def update(self):
         self.center_x += self.change_x
         self.center_y += self.change_y
@@ -57,13 +62,13 @@ class Rectangle():
         if self.center_x < 0:
             self.change_x *= -1
 
-
+# cration de classe mygame
 class MyGame(arcade.Window):
    def __init__(self):
        super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, "Exercice #1")
        self.liste_cercles = []
        self.liste_rectangle = []
-
+    #on setup l'écran
    def setup(self):
         arcade.set_background_color(arcade.color.BLACK)
         arcade.schedule(self.update, 1/60)
@@ -73,8 +78,9 @@ class MyGame(arcade.Window):
            cercle.draw()
        for rectangle in self.liste_rectangle:
            rectangle.draw()
-
+    # on definis mouse press
    def on_mouse_press(self, x: int, y: int, button: int, modifiers: int):
+       #ce que on veut que le code fasse quand on appuie sur le boutton a gauche de la souris
         if button == arcade.MOUSE_BUTTON_LEFT:
             rayon = random.randint(5, 10)
             center_x = x
@@ -83,7 +89,7 @@ class MyGame(arcade.Window):
             variable = Balle(rayon, center_x, center_y, color)
 
             self.liste_cercles.append(variable)
-
+       # ce que on veut que le code fasse quand on appuie sur le boutton a droit de la souris
         if button == arcade.MOUSE_BUTTON_RIGHT:
             width = 11
             height = 11
